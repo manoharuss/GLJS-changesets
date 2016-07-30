@@ -8,11 +8,37 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        .top{position:absolute; top:0; left:100px;bottom:20px; width:100%;}
+        #map { position:absolute; top:20px; bottom:0; width:100%; }
     </style>
 </head>
 <body>
+<div id ='top'>
+  <select id='mapper' name="mapper">
+    <option value="PlaneMad">Arun</option>
+    <option value="Chetan_Gowda">Chetan</option>
+    <option value="nammala">Krishna</option>
+    <option value="manoharuss">Manohar</option>
+    <option value="poornibadrinath">Poornima</option>
+    <option value="manings">Maning</option>
+    <option value="Maanya">Maanya</option>
+    <option value="jinalfoflia">Jinal</option>
+    <option value="ruthmaben">Ruth</option>
+    <option value="srividya_c">Srividya</option>
+    <option value="ramyaragupathy">Ramya</option>
+    <option value="lxbarth">Alex</option>
+    <option value="nikhilprabhakar">Nikhil</option>
+    <option value="pratikyadav">Pratik</option>
+    <option value="oini">Oini</option>
+    <option value="Jothirnadh">Jothi</option>
+    <option value="saikabhi">Abhishek</option>
+    <option value="geohacker">Sajjad</option>
+    <option value="oini">Oini</option>
+    <option value="aarthy">Aarthy</option>
+    <option value="Arunasank">Aruna</option>
 
+
+  </select></div>
 <div id='map'></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFub2hhcnVzcyIsImEiOiJjaW1mMDZiYnIwMTU2dGlsdm5pMWpoYm5iIn0.X6u7Ke6rPN5ap2Na15HItw';
@@ -22,8 +48,19 @@ var map = new mapboxgl.Map({
     center: [0, 0], // starting position
     zoom: 0.8 // starting zoom
 });
+var mapperName;
+document.getElementById('mapper').addEventListener('change', function(e) {
+  mapperName = this.value;
+  console.log(mapperName);
+  combinedFilters();
+});
+function combinedFilters() {
 
 
+    var new_Filter = ["==", 'lastCommentUserName', mapperName];
+    map.setFilter('ignored-d1dmcy', new_Filter);
+
+}
 
 
 
