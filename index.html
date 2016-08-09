@@ -33,13 +33,14 @@ map.on('click', function (e) {
     }
 
     var feature = features[0];
+    console.log(feature.properties.id);
 
     // Populate the popup and set its coordinates
     // based on the feature found.
     var popup = new mapboxgl.Popup()
         .setLngLat(feature.geometry.coordinates)
         .setHTML(feature.properties.lastCommentUserName)
-        .setHTML('<a href="http://www.openstreetmap.org/changeset/'+feature.properties.Id+'">'+feature.properties.Id+'</a>')
+        .setHTML('<h4>'+feature.properties.lastCommentUserName+'</h4></br><a href="http://www.openstreetmap.org/changeset/'+feature.properties.id+'">'+feature.properties.id+'</a>')
         .addTo(map);
 });
 
