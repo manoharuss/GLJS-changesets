@@ -39,7 +39,7 @@ map.on('click', function (e) {
     var popup = new mapboxgl.Popup()
         .setLngLat(feature.geometry.coordinates)
         .setHTML(feature.properties.lastCommentUserName)
-        .setHTML('<a href="http://www.openstreetmap.org/changeset/"'+feature.properties.id+'>feature.properties.id</a>')
+        .setHTML('<a href="http://www.openstreetmap.org/changeset/'+feature.properties.Id+'">'+feature.properties.Id+'</a>')
         .addTo(map);
 });
 
